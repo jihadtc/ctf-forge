@@ -37,7 +37,7 @@ Cybersecurity & CTF Enthusiast
 ## 📂 Project Structure
 
 ```
-ctf-forge/
+CTF-Forge/
 ├── ctf-forge.sh
 ├── Core/
 │   ├── config.sh
@@ -59,7 +59,7 @@ ctf-forge/
 
 **1. Clone the repository:**
 
-       git clone https://github.com/jihadtc/ctf-forge.git
+       git clone https://github.com/jihadtc/CTF-Forge.git
 
 **2. Go into the folder:**
 
