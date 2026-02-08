@@ -5,11 +5,11 @@
 # Based on common CTF enumeration techniques
 # ==============================================
 
-# Load core functions
-source core/config.sh
-source core/banner.sh
-source core/check_deps.sh
-source core/utils.sh
+# Load Core functions
+source Core/config.sh
+source Core/banner.sh
+source Core/check_deps.sh
+source Core/utils.sh
 
 # Ask for target IP
 read -p "Enter target IP: " TARGET_IP
@@ -40,7 +40,7 @@ main_menu() {
         4) privesc ;;
         5) flag_finder ;;
         6) exit 0 ;;
-        *) 
+        *)
             echo -e "${RED}Invalid choice!${NC}"
             main_menu
             ;;
@@ -50,33 +50,33 @@ main_menu() {
 # Module Functions
 full_recon() {
     info "Running full recon..."
-    ./modules/recon.sh "$TARGET_IP"
-    ./modules/web_enum.sh "$TARGET_IP"
-    ./modules/smb_enum.sh "$TARGET_IP"
+    ./Modules/recon.sh "$TARGET_IP"
+    ./Modules/web_enum.sh "$TARGET_IP"
+    ./Modules/smb_enum.sh "$TARGET_IP"
     main_menu
 }
 
 web_enum() {
     info "Running web enumeration..."
-    ./modules/web_enum.sh "$TARGET_IP"
+    ./Modules/web_enum.sh "$TARGET_IP"
     main_menu
 }
 
 smb_enum() {
     info "Running SMB enumeration..."
-    ./modules/smb_enum.sh "$TARGET_IP"
+    ./Modules/smb_enum.sh "$TARGET_IP"
     main_menu
 }
 
 privesc() {
     info "Running privilege escalation check..."
-    ./modules/privesc.sh "$TARGET_IP"
+    ./Modules/privesc.sh "$TARGET_IP"
     main_menu
 }
 
 flag_finder() {
     info "Searching for flags..."
-    ./modules/flag_finder.sh "$TARGET_IP"
+    ./Modules/flag_finder.sh "$TARGET_IP"
     main_menu
 }
 
