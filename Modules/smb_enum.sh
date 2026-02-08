@@ -5,37 +5,32 @@
 
 TARGET="$1"
 
-if [ -z "$TARGET" ]; then
+if [[ -z "$TARGET" ]]; then
     echo "Usage: smb_enum.sh <target-ip>"
     exit 1
 fi
 
 OUT_DIR="Output/$TARGET/smb"
-ENUM4_OUT="$OUT_DIR/enum4linux.txt"
-SMBCLIENT_OUT="$OUT_DIR/smbclient.txt"
-NMAP_OUT="$OUT_DIR/nmap_smb.txt"
-
 mkdir -p "$OUT_DIR"
 
-echo "[+] SMB Enumeration started on $TARGET"
+echo "[+] SMB enumeration started on $TARGET"
 echo "----------------------------------"
 
-# Check if SMB ports are open
-echo "[*] Checking SMB ports..."
-nmap -p 139,445 -Pn "$TARGET" -oN "$NMAP_OUT"
-
-if ! grep -q "open" "$NMAP_OUT"; then
-    echo "[-] SMB ports are closed. Skipping SMB enumeration."
+# Check if SMB port is open
+if ! nc -z "$TARGET" 445 2>/dev/null; then
+    echo "[-] SMB (445) is not open on $TARGET"
     exit 0
 fi
 
-# enum4linux
+echo "[+] SMB service detected on port 445"
+
+# Enum4Linux
 echo "[*] Running enum4linux..."
-enum4linux -a "$TARGET" | tee "$ENUM4_OUT"
+enum4linux "$TARGET" > "$OUT_DIR/enum4linux.txt"
 
-# smbclient anonymous listing
-echo "[*] Checking anonymous SMB access..."
-smbclient -L "//$TARGET/" -N | tee "$SMBCLIENT_OUT"
+# SMB client anonymous listing
+echo "[*] Attempting anonymous SMB share listing..."
+smbclient -L "//$TARGET/" -N > "$OUT_DIR/smbclient_list.txt" 2>/dev/null
 
-echo "[+] SMB Enumeration completed."
-echo "[+] Results saved in $OUT_DIR/"
+echo "[+] SMB enumeration completed."
+echo "[+] Results saved in $OUT_DIR"
