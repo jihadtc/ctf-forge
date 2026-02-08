@@ -68,6 +68,8 @@ CTF-Forge/
 **3. Make the script executable:**
 
        chmod +x ctf-forge.sh
+       
+       chmod +x Modules/*.sh
 
 **4. Run the tool:**
 
