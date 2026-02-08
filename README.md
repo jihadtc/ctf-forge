@@ -1,4 +1,4 @@
-# CTF-Forge 🏴‍☠️
+# CTF-Forge v1.0 🏴‍☠️
 
 CTF-Forge is an automated reconnaissance and enumeration tool designed to help CTF players and penetration testers save time during the early stages of a challenge.
 
@@ -15,12 +15,14 @@ This project is based on common CTF enumeration techniques and publicly availabl
 Implementation, integration, and customization by **Jihad Tichti**  
 Cybersecurity & CTF Enthusiast
 
+*"This project does not claim ownership of the underlying tools used (nmap, gobuster, etc.)."*
+
 ## ✨ Features
 - Fast full port scanning
 - Service and version detection
 - Web directory enumeration
 - SMB enumeration
-- Privilege escalation checks
+- Linux privilege escalation checks
 - Flag discovery automation
 - Organized output per target
 
@@ -30,7 +32,7 @@ Cybersecurity & CTF Enthusiast
 - dirsearch
 - enum4linux
 - find
-- common CTF wordlists
+- Kali Linux system wordlists
 
 ## 📂 Project Structure
 
@@ -38,8 +40,16 @@ Cybersecurity & CTF Enthusiast
 ctf-forge/
 ├── ctf-forge.sh
 ├── Core/
+│   ├── config.sh
+│   ├── banner.sh
+│   ├── utils.sh
+│   └── check_deps.sh
 ├── Modules/
-├── Wordlists/
+│   ├── recon.sh
+│   ├── web_enum.sh
+│   ├── smb_enum.sh
+│   ├── privesc.sh
+│   └── flag_finder.sh
 ├── Output/
 └── README.md
 ```
@@ -63,6 +73,8 @@ ctf-forge/
 
        ./ctf-forge.sh
 
+## 🏁 Status
 
+*CTF-Forge v1.0 — stable and ready for CTF use*
 ---
 
