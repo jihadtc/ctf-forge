@@ -1,0 +1,7 @@
+# Ignore scan outputs
+Output/
+
+# Ignore temporary or editor files
+*.log
+*.swp
+.DS_Store
