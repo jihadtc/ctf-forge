@@ -41,13 +41,23 @@ ctf-forge/
 
 
 ## 🚀 Usage
-```bash
-chmod +x ctf-forge.sh
-./ctf-forge.sh
-```
 
+**1. Clone the repository:**
+
+       git clone https://github.com/jihadtc/ctf-forge.git
+
+**2. Go into the folder:**
+
+       cd ctf-forge
+
+**3. Make the script executable:**
+
+       chmod +x ctf-forge.sh
+
+**4. Run the tool:**
+
+       ./ctf-forge.sh
 
 
 ---
- shell generator
-- Add encoding/decoding module
+
