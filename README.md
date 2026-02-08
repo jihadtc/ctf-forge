@@ -8,7 +8,12 @@ It combines common CTF commands into a single, structured, and easy-to-use Bash 
 
 **This tool is intended for educational purposes and authorized CTF environments only.**
 
-👤 Author : **Jihad Tichti** - Cybersecurity & CTF Enthusiast
+## 👤 Author & Credits
+
+This project is based on common CTF enumeration techniques and publicly available security tools.
+
+Implementation, integration, and customization by **Jihad Tichti**  
+Cybersecurity & CTF Enthusiast
 
 ## ✨ Features
 - Fast full port scanning
