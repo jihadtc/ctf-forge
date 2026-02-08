@@ -16,13 +16,12 @@ NC="\e[0m"   # No Color
 BASE_DIR="$(pwd)"
 CORE_DIR="$BASE_DIR/Core"
 MODULES_DIR="$BASE_DIR/Modules"
-WORDLISTS_DIR="$BASE_DIR/Wordlists"
 OUTPUT_DIR="$BASE_DIR/Output"
 
-# -------- Wordlists --------
-COMMON_DIRS="$WORDLISTS_DIR/common.txt"
-DIRBUSTER_MEDIUM="$WORDLISTS_DIR/directory-list-2.3-medium.txt"
-ROCKYOU="$WORDLISTS_DIR/rockyou.txt"
+# -------- Wordlists (System Paths) --------
+WORDLIST_COMMON="/usr/share/wordlists/dirb/common.txt"
+WORDLIST_DIRBUSTER="/usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt"
+WORDLIST_ROCKYOU="/usr/share/wordlists/rockyou.txt"
 
 # -------- Nmap --------
 NMAP_FAST="-p- --min-rate 10000 -Pn"
